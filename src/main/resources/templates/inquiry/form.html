@@ -10,8 +10,8 @@
 <div th:if="${param.complete}" >
 	更新が完了しました。
 </div>
-<h2 th:text="${complete}"></h2>
-<form method="post" action="#" th:action="@{/inquiry/confirm}" th:object="${inquiryForm}">
+<h2 th:text="${complete}"></h2>
+<form method="post"	action="#" th:action="@{/inquiry/confirm}" th:object="$inquiryForm}">
 	<label for="name">お名前:</label>
 	<input id="name" name="name" type="text"><br>
 	<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
@@ -22,7 +22,11 @@
 	<textarea name="contents" id="contents" rows="3" cols="40"></textarea><br>
 	<div th:if="${#fields.hasErrors('contents')}" th:errors="*{contents}"></div>
 	<input type="submit" value="確認ページへ">
-	
+<!--
+	th:actionはフォーム入力内容の送信用、th:objectはフォーム入力内容の表示用
+	inputタグのname属性は、フォームのフィールド名に合わせる必要がある
+	divタグは、フォーム入力内容にエラーがあった場合に表示させる
+-->		
 </form>
 </body>
 </html>
