@@ -20,11 +20,10 @@ import com.example.demo.entity.Inquiry;
 import com.example.demo.service.InquiryNotFoundException;
 import com.example.demo.service.InquiryServiceImpl;
 
-/*
- * Add annotations here
- */
+@Controller
+@RequestMapping("/inquiry")
 public class InquiryController {
-	
+
 // 	private final InquiryServiceImpl inquiryService;
 	
 	//Add an annotation here 
@@ -41,8 +40,8 @@ public class InquiryController {
 	}
 	
 	@GetMapping("/form")
-	public String form(/*Add parameters. */) {
-		
+	public String form(Model model) {
+		model.addAttribute("title", "Inquiry Form");
 		return "inquiry/form";
 	}
 	
