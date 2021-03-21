@@ -16,7 +16,7 @@ public class InquiryController {
 	
 	//Add an annotation here 
 // 	public InquiryController(InquiryServiceImpl inquiryService){
-// 		this.inquiryService = inquiryService;
+// 		this.inquiryService = inquiryService;a
 // 	}
 	
 	@GetMapping
