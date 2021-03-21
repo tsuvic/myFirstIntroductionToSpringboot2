@@ -69,7 +69,7 @@ public class SurveyController {
 		
 		//hands-on
 		
-		return "";
+		return "inquiry/form";
 	}
 	
 }
