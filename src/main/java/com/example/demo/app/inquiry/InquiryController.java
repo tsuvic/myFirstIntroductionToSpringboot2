@@ -64,6 +64,10 @@ public class InquiryController {
 			return "inquiry/form";
 		}
 		//insert into the database
+		//controllerではformの内容をentityに詰め直す
+		//その後、サービスがdaoのメソッドを使って、entityの中身をDBに登録する
+		
+		
 		redirectAttributes.addFlashAttribute("complete", "Registerd!");
 		return "redirect:/inquiry/form";
 	}
