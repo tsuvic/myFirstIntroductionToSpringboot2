@@ -39,8 +39,10 @@ public class InquiryController {
 		return "inquiry/index";
 	}
 	
+	//ずっとinquiryFormを引数に指定し忘れていてエラーが発生していた
+	//引数に指定しないと、form.htmlでinquiryFormを参照できない。ここれ引数にするとnewされる？
 	@GetMapping("/form")
-	public String form(Model model) {
+	public String form(InquiryForm inquiryForm, Model model) {
 		model.addAttribute("title", "Inquiry Form");
 		return "inquiry/form";
 	}
