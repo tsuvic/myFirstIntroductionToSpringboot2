@@ -37,13 +37,13 @@ public class SurveyController {
 	public String form(SurveyForm serveyForm,
 			Model model,
 			@ModelAttribute("complete") String complete) {
-		model.addAttribute("title, Survey Form");
+		model.addAttribute("title", "アンケートフォーム");
 		return "survey/form";
 	}
 	
 	@PostMapping("/form")
 	public String form(SurveyForm surveyForm, Model model) {
-		model.addAttribute("title, Survey Form");
+		model.addAttribute("title", "アンケートフォーム");
 		return "survey/form";
 	}
 	
@@ -51,12 +51,13 @@ public class SurveyController {
 	public String confirm(@Validated SurveyForm surveyForm,
 			BindingResult result,
 			Model model) {
+		
 		if(result.hasErrors()) {
-			model.addAttribute("title", "Survey Form");
+			model.addAttribute("title", "アンケートフォーム");
 			return "survey/form";
 		}
 		
-		model.addAttribute("title", "Confirm Page");
+		model.addAttribute("title", "確認ページ");
 		return "survey/confirm";
 	}
 	
@@ -68,11 +69,11 @@ public class SurveyController {
 			RedirectAttributes redirectAttributes) {
 		
 		if(result.hasErrors()) {
-			model.addAttribute("title", "Survey Form");
+			model.addAttribute("title", "アンケートフォーム");
 			return "survey/form";
 		}
 		
-		redirectAttributes.addFlashAttribute("complete", "Thanks!!");
+		redirectAttributes.addFlashAttribute("complete", "登録完了");
 		return "redirect:/survey/form";
 	}
 	

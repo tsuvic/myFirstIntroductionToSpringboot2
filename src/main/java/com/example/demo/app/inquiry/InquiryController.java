@@ -14,12 +14,19 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/inquiry")
 public class InquiryController {
 
-// 	private final InquiryServiceImpl inquiryService;
+ 	private final InquiryServiceImpl inquiryService;
 	
+<<<<<<< Updated upstream
 	//Add an annotation here 
 // 	public InquiryController(InquiryServiceImpl inquiryService){
 // 		this.inquiryService = inquiryService;a
 // 	}
+=======
+ 	@Autowired
+ 	public InquiryController(InquiryServiceImpl inquiryService){
+ 		this.inquiryService = inquiryService;
+ 	}
+>>>>>>> Stashed changes
 	
 	@GetMapping
 	public String index(Model model) {
@@ -29,21 +36,31 @@ public class InquiryController {
 	}
 	
 	@GetMapping("/form")
+<<<<<<< Updated upstream
 	public String form(InquiryForm inquiryForm,
 			Model model,
 			@ModelAttribute("compelete") String complete) {
 		model.addAttribute("title", "Inquiry Form");
+=======
+	public String form(InquiryForm inquiryForm, Model model) {
+		model.addAttribute("title", "問い合わせフォーム");
+>>>>>>> Stashed changes
 		return "inquiry/form";
 	}
 	
 	@PostMapping("/form")
 	public String formGoBack(InquiryForm inquiryForm, Model model) {
+<<<<<<< Updated upstream
 		model.addAttribute("title", "Inquiry Form");
+=======
+		model.addAttribute("title", "問い合わせフォーム");
+>>>>>>> Stashed changes
 		return "inquiry/form";
 	}
 	
 	@PostMapping("/confirm")
 	public String confirm(@Validated InquiryForm inquiryForm,
+<<<<<<< Updated upstream
 			BindingResult result, 
 			Model model){
 		if(result.hasErrors()) {
@@ -51,6 +68,17 @@ public class InquiryController {
 			return "inquiry/form";
 		}
 		model.addAttribute("title", "Confirm Page");
+=======
+			BindingResult result,
+			Model model) {
+			
+		if(result.hasErrors()) {
+		model.addAttribute("title", "問い合わせフォーム");
+		return "inquiry/form";
+		}
+		
+		model.addAttribute("title", "確認ページ");
+>>>>>>> Stashed changes
 		return "inquiry/confirm";
 	}
 	
