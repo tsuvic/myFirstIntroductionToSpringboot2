@@ -37,16 +37,16 @@ public class InquiryDaoImpl implements InquiryDao{
 	@Override
 	public List<Inquiry> getAll() {
 		String sql = "SELECT id, name, email, contents, created FROM inquiry";
-		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);		
+		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql);//実行結果をリストへ		
 		List<Inquiry> list = new ArrayList<Inquiry>(); //viewに返却用のリスト
-		for(Map<String, Object> result : resultList) {
-			Inquiry inquiry = new Inquiry();
+		for(Map<String, Object> result : resultList) {//resultListからMAP型resultを繰り返し出力
+			Inquiry inquiry = new Inquiry();//出力したMAP型resultからインスタンスに値を詰め込み
 			inquiry.setId((int)result.get("id"));
 			inquiry.setName((String)result.get("name"));
 			inquiry.setEmail((String)result.get("email"));
 			inquiry.setContents((String)result.get("contents"));
 			inquiry.setCreated(((Timestamp)result.get("created")).toLocalDateTime());
-			list.add(inquiry);
+			list.add(inquiry);//viewに返却用のリスト
 		}
 		return list;
 	}
