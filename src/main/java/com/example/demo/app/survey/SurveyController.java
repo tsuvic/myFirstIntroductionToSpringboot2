@@ -28,7 +28,7 @@ public class SurveyController {
 	
 	@GetMapping
 	public String index(Model model) {
-		model.addAttribute("title", "アンケート");
+		model.addAttribute("title", "アンケート一覧");
 		return "survey/index";
 	}
 	
